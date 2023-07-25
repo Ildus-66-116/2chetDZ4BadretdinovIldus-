@@ -15,8 +15,8 @@ mnog_1 = [randint(1, 10) for i in range(number_1)]
 mnog_1 = set(mnog_1)
 mnog_2 = [randint(1, 10) for i in range(number_2)]
 mnog_2 = set(mnog_2)
-print(mnog_1)
-print(mnog_2)
+print(f'Уникальные значения множества 1: {mnog_1}')
+print(f'Уникальные значения множества 2: {mnog_2}')
 mnog_3 = mnog_1.intersection(mnog_2)
 mnog_3 = list(mnog_3)
 for i in range(len(mnog_3) - 1):
