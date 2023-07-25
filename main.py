@@ -8,21 +8,52 @@
 # элементов второго множества. 
 # Затем пользователь вводит сами элементы множеств.
 
+# from random import randint
+# number_1 = int(input('Введите кол-во элементов 1-го мнжества: '))
+# number_2 = int(input('Введите кол-во элементов 2-го мнжества: '))
+# mnog_1 = [randint(1, 10) for i in range(number_1)]
+# mnog_1 = set(mnog_1)
+# mnog_2 = [randint(1, 10) for i in range(number_2)]
+# mnog_2 = set(mnog_2)
+# print(f'Уникальные значения множества 1: {mnog_1}')
+# print(f'Уникальные значения множества 2: {mnog_2}')
+# mnog_3 = mnog_1.intersection(mnog_2)
+# mnog_3 = list(mnog_3)
+# for i in range(len(mnog_3) - 1):
+#     for j in range(len(mnog_3) - i - 1):
+#         if mnog_3[j] > mnog_3[j + 1]:
+#             temp = mnog_3[j]
+#             mnog_3[j] = mnog_3[j + 1]
+#             mnog_3[j + 1] = temp
+# print(f'Результат: {mnog_3}')
+
+
+# Задача 24: 
+
+# В фермерском хозяйстве в Карелии выращивают чернику. Она растет на
+# круглой грядке, причем кусты высажены только по окружности. Таким образом, у
+# каждого куста есть ровно два соседних. Всего на грядке растет N кустов.
+# Эти кусты обладают разной урожайностью, поэтому ко времени сбора на них
+# выросло различное число ягод – на i-ом кусте выросло ai
+#  ягод.
+# В этом фермерском хозяйстве внедрена система автоматического сбора черники.
+# Эта система состоит из управляющего модуля и нескольких собирающих модулей.
+# Собирающий модуль за один заход, находясь непосредственно перед некоторым
+# кустом, собирает ягоды с этого куста и с двух соседних с ним.
+# Напишите программу для нахождения максимального числа ягод, которое может
+# собрать за один заход собирающий модуль, находясь перед некоторым кустом
+# заданной во входном файле грядки.
+
 from random import randint
-number_1 = int(input('Введите кол-во элементов 1-го мнжества: '))
-number_2 = int(input('Введите кол-во элементов 2-го мнжества: '))
-mnog_1 = [randint(1, 10) for i in range(number_1)]
-mnog_1 = set(mnog_1)
-mnog_2 = [randint(1, 10) for i in range(number_2)]
-mnog_2 = set(mnog_2)
-print(f'Уникальные значения множества 1: {mnog_1}')
-print(f'Уникальные значения множества 2: {mnog_2}')
-mnog_3 = mnog_1.intersection(mnog_2)
-mnog_3 = list(mnog_3)
-for i in range(len(mnog_3) - 1):
-    for j in range(len(mnog_3) - i - 1):
-        if mnog_3[j] > mnog_3[j + 1]:
-            temp = mnog_3[j]
-            mnog_3[j] = mnog_3[j + 1]
-            mnog_3[j + 1] = temp
-print(f'Результат: {mnog_3}')
+number = int(input('Введите кол-во кустов: '))
+kusty = [randint(1, 10) for i in range(number)]
+print(kusty)
+max_yagod = 0
+for i in range(len(kusty) - 1):
+        summ_yagod = kusty[i - 1] + kusty[i] + kusty[i + 1]
+        if max_yagod < summ_yagod:
+            max_yagod = summ_yagod
+summ_yagod = kusty[len(kusty) - 2] + kusty[len(kusty) - 1] + kusty[0]
+if max_yagod < summ_yagod:
+     max_yagod = summ_yagod
+print(max_yagod)
